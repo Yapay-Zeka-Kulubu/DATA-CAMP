@@ -2,7 +2,7 @@
 
 Bu proje ödevi, Telco Customer Churn verisi kullanılarak müşteri kayıp analizi yapmayı amaçlamaktadır. Analiz, veri temizleme, keşifsel veri analizi, özellik mühendisliği ve tahmin modeli oluşturmayı içermektedir. Aşağıda bu analizin tamamlanması için atılması gereken adımlar bulunmaktadır.
 
-### Not: Tüm sorularınız için Discord soru cevap kısmına yazabilirsiniz. Ödev süresi 2 Hafta bu süreçte öğrenerek yapmalısınız. Proje sonunda herkes projelerinin sunumunu gerçekleştirecektir.
+### Not: Tüm sorularınız için Discord soru cevap kısmına yazabilirsiniz. Ödev som teslim tarihi 31 temmuz çarşamba. Proje sonunda herkes projelerinin sunumunu gerçekleştirecektir.
 
 ## İçindekiler
 1. [Giriş](#giriş)
