@@ -12,3 +12,7 @@ Kendi CNN Object Detection modelinizi tasarlayabilir veya YOLO gibi hazır model
 ## Değerlendirme
 
 Modellerinizi kendi test veriniz ile test edip Accurcy, F1 Skoru ve mAP ile değerlendirmelisiniz.
+
+## Kaynaklar
+https://medium.com/@tuncerergin/convolutional-neural-network-convnet-yada-cnn-nedir-nasil-calisir-97a0f5d34cad
+https://medium.com/deep-learning-turkiye/yolo-algoritmasını-anlamak-290f2152808f
