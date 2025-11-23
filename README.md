@@ -3,8 +3,10 @@
 ## Eğitimin içeriği
 Teorik ve pratik olarak, Veri Bilimi, Bilgisayarlı Görü ve Doğal Dil İşleme kısımlarını içermektedir.
 
-## Eğitmen
+## Eğitmenler
 [Muhammet Özdemir](https://github.com/mr-ozdemir)
+
+[Kadir Yönak](https://github.com/kadiryonak)
 
 ## Ek Kaynaklar
 [Proje Örnekleri](https://github.com/ml-tooling/best-of-ml-python)
