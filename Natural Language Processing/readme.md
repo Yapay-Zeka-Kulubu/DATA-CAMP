@@ -38,6 +38,7 @@ dataset = load_dataset("imdb")
 
 
 🧭 Ödevde Yapılması Gerekenler (Zorunlu Adımlar)
+
 ✔ 1) Veri Setini Yükleme
 
 IMDb dataset’i HuggingFace üzerinden indirilecek
@@ -151,4 +152,5 @@ Tüm dosyaların eksiksiz olması
 Kodun çalışır durumda olması
 
 Doğru hazırlanmış requirements.txt
+
 
