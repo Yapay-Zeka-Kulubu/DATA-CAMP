@@ -114,7 +114,7 @@ Bir confusion matrix görselleştirmesi (grafik ya da tablo) eklemelidir.
 
 ✔ 7) Proje Yapısı
 
-Öğrenciler projeyi aşağıdaki formatta teslim etmelidir:
+Projeyi aşağıdaki formatta teslim etmelidir:
 
 project/
 │── README.md
@@ -124,7 +124,7 @@ project/
 │     ├── metrics.txt
 │     ├── confusion_matrix.png
 
-📝 Öğrenciden Beklenen Çıktılar
+📝 Beklenen Çıktılar
 
 README dosyasında mutlaka bulunmalıdır:
 
@@ -153,3 +153,4 @@ Projede tüm dosyalar eksiksiz bulunmalıdır
 Kod çalışır durumda olmalıdır
 
 requirements.txt doğru olmalıdır
+
