@@ -31,9 +31,11 @@ Pozitif / negatif duygu etiketi
 HuggingFace üzerinden indirilecektir
 
 Veri seti şu komutla yüklenebilir:
-
+```python
 from datasets import load_dataset
 dataset = load_dataset("imdb")
+```
+
 
 🧭 Ödevde Yapılması Gerekenler (Zorunlu Adımlar)
 ✔ 1) Veri Setini Yükleme
@@ -111,15 +113,15 @@ En az 5 farklı örnek cümle test edilmelidir.
 ✔ 7) Proje Yapısı
 
 Proje aşağıdaki formatta teslim edilmelidir:
-
+```text
 project/
-│── README.md
-│── requirements.txt
-│── sentiment_analysis.py
-│── results/
-│     ├── metrics.txt
-│     ├── confusion_matrix.png
-
+├── README.md
+├── requirements.txt
+├── sentiment_analysis.py
+└── results/
+    ├── metrics.txt
+    └── confusion_matrix.png
+```
 📝 Beklenen Çıktılar
 
 README dosyasında mutlaka yer almalıdır:
@@ -149,3 +151,4 @@ Tüm dosyaların eksiksiz olması
 Kodun çalışır durumda olması
 
 Doğru hazırlanmış requirements.txt
+
