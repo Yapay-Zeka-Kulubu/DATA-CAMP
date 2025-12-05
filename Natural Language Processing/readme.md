@@ -1,26 +1,25 @@
 📘 ÖDEV 1 README – IMDb Sentiment Analysis (Duygu Analizi Projesi)
 🎯 Ödevin Konusu
 
-IMDb film yorumları veri setini kullanarak bir Duygu Analizi (Sentiment Analysis) modeli geliştirmeleri istenmektedir.
-Amaç, bir film yorumunun olumlu (positive) veya olumsuz (negative) olduğunu makine öğrenmesi yöntemleriyle sınıflandırmaktır.
+Bu ödevde IMDb film yorumları veri seti kullanılarak bir Duygu Analizi (Sentiment Analysis) modeli geliştirilmesi beklenmektedir.
+Amaç:
+Bir film yorumunun olumlu (positive) veya olumsuz (negative) olduğunu makine öğrenmesi yöntemleri ile sınıflandırmaktır.
 
 📌 Ödevin Hedefleri
 
-Bu ödev ile :
+Bu ödev ile aşağıdaki kazanımlar elde edilmelidir:
 
-Doğal Dil İşleme (NLP) temel kavramlarını uygulaması
+Doğal Dil İşleme (NLP) temel kavramlarını uygulamak
 
-Metin ön işleme (preprocessing) adımlarını öğrenmesi
+Metin ön işleme (preprocessing) adımlarını gerçekleştirmek
 
-TF-IDF ile özellik çıkarımı yapması
+TF-IDF ile özellik çıkarımı yapmak
 
-Basit bir makine öğrenmesi modelini eğitmesi
+Basit bir makine öğrenmesi modeli eğitmek
 
-Model performansını doğru değerlendirebilmesi
+Model performansını değerlendirmek
 
-Proje yapısı oluşturmayı öğrenmesi
-
-beklenmektedir.
+Doğru ve düzenli bir proje yapısı oluşturmak
 
 📂 Kullanılacak Veri Seti
 🟦 IMDb Sentiment Dataset
@@ -31,54 +30,51 @@ Pozitif / negatif duygu etiketi
 
 HuggingFace üzerinden indirilecektir
 
-Veri setinin yüklenmesi için :
+Veri seti şu komutla yüklenebilir:
 
 from datasets import load_dataset
 dataset = load_dataset("imdb")
 
-
-komutunu kullanacaktır.
-
 🧭 Ödevde Yapılması Gerekenler (Zorunlu Adımlar)
 ✔ 1) Veri Setini Yükleme
 
-IMDb dataset’i HuggingFace üzerinden indirilecek.
+IMDb dataset’i HuggingFace üzerinden indirilecek
 
-Eğitim ve test ayırımı doğru şekilde yapılacak.
+Eğitim / test ayrımı kullanılacak
 
 ✔ 2) Metin Ön İşleme (Preprocessing)
 
-Aşağıdaki adımların hepsini uygulamalıdır:
+Aşağıdaki adımların tamamı uygulanmalıdır:
 
 Metinleri küçük harfe çevirme
 
-Noktalama işaretlerini kaldırma
+Noktalama işaretlerini temizleme
 
 Sayıları kaldırma (opsiyonel)
 
 Stopwords temizleme
 
-Gerekiyorsa lemmatization / stemming
+Lemmatization veya stemming
 
 Gereksiz boşlukları silme
 
-README içinde kendi preprocessing şemalarını açıklamaları zorunludur.
+README içinde kullanılan preprocessing adımları ayrıca açıklanmalıdır.
 
-✔ 3) Özellik Çıkarımı
+✔ 3) Özellik Çıkarımı (TF-IDF)
 
-Bu projede TF-IDF kullanmak zorundadır.
+Bu ödevde TF-IDF kullanmak zorunludur.
 
-Beklenen:
+Beklenenler:
 
-TF-IDF vectorizer kullanılması
+TF-IDF vektörleştirici kullanılması
 
 En az 3 parametrenin açıklanması
 
-Örneğin: max_features, ngram_range, stop_words
+Örnek: max_features, ngram_range, stop_words
 
 ✔ 4) Makine Öğrenmesi Modeli Eğitimi
 
-Şunlardan birini seçip kullanmalıdır:
+Aşağıdaki modellerden biri seçilmelidir:
 
 Logistic Regression (önerilir)
 
@@ -86,7 +82,7 @@ Linear SVM
 
 Multinomial Naive Bayes
 
-Model seçimi ve gerekçesi README’de açıklanmalıdır.
+Model seçiminin gerekçesi README’de açıklanmalıdır.
 
 ✔ 5) Model Değerlendirme
 
@@ -100,13 +96,13 @@ Recall
 
 F1-score
 
-Ayrıca :
+Ek olarak:
 
-Bir confusion matrix görselleştirmesi (grafik ya da tablo) eklemelidir.
+Bir confusion matrix görselleştirmesi (grafik veya tablo) eklenmelidir.
 
-✔ 6) Kendi Cümleleriyle Test
+✔ 6) Kendi Cümleleriyle Test Yapma
 
-5 farklı örnek cümle yazıp model sonuçlarını göstermelidir.
+En az 5 farklı örnek cümle test edilmelidir.
 
 Örnek:
 
@@ -114,7 +110,7 @@ Bir confusion matrix görselleştirmesi (grafik ya da tablo) eklemelidir.
 
 ✔ 7) Proje Yapısı
 
-Projeyi aşağıdaki formatta teslim etmelidir:
+Proje aşağıdaki formatta teslim edilmelidir:
 
 project/
 │── README.md
@@ -126,11 +122,11 @@ project/
 
 📝 Beklenen Çıktılar
 
-README dosyasında mutlaka bulunmalıdır:
+README dosyasında mutlaka yer almalıdır:
 
 Ödevin kısa açıklaması
 
-Uygulanan preprocessing adımlarının listesi
+Uygulanan preprocessing adımları
 
 TF-IDF parametreleri
 
@@ -144,13 +140,12 @@ Confusion matrix görseli
 
 📦 Teslim Gereksinimleri
 
-Projeyi şu şekilde teslim etmelidir:
+Teslim edilecekler:
 
 GitHub repo linki
 
-Projede tüm dosyalar eksiksiz bulunmalıdır
+Tüm dosyaların eksiksiz olması
 
-Kod çalışır durumda olmalıdır
+Kodun çalışır durumda olması
 
-requirements.txt doğru olmalıdır
-
+Doğru hazırlanmış requirements.txt
