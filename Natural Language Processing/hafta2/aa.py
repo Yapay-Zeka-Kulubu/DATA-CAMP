@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 
 nltk.download('stopwords')
 
-df = pd.read_csv(r'C:\Users\w\Desktop\Kodlama\VsCode\HelloWorld\DataKamp\DATA-CAMP\Natural Language Processing\twitter_training.csv', names=['id','topic','sentiment','text']).dropna()
+df = pd.read_csv(r'C:\Users\w\Desktop\Kodlama\VsCode\HelloWorld\DataKamp\DATA-CAMP\Natural Language Processing\hafta2\twitter_training.csv', names=['id','topic','sentiment','text']).dropna()
 print("Orijinal veri örneği:\n", df.head(), "\n")
 
 # Temizleme fonksiyonu
@@ -228,3 +228,121 @@ sample_texts = [
 for text in sample_texts:
     pred = predict_text(lstm_model, text, vocab)
     print(f"Text: {text}\nPredicted Sentiment: {pred}\n")
+
+
+
+
+
+
+# Output
+
+'''
+Kullanılan cihaz: cuda
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+GPU Bellek: 8.0 GB
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\w\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+Orijinal veri örneği:
+      id        topic sentiment                                               text
+0  2401  Borderlands  Positive  im getting on borderlands and i will murder yo...
+1  2401  Borderlands  Positive  I am coming to the borders and I will kill you...
+2  2401  Borderlands  Positive  im getting on borderlands and i will kill you ...
+3  2401  Borderlands  Positive  im coming on borderlands and i will murder you...
+4  2401  Borderlands  Positive  im getting on borderlands 2 and i will murder ...
+
+Temizlenmiş veri örneği:
+                                                 text                                       cleaned_text
+0  im getting on borderlands and i will murder yo...  im getting on borderlands and i will murder yo...
+1  I am coming to the borders and I will kill you...  i am coming to the borders and i will kill you...
+2  im getting on borderlands and i will kill you ...  im getting on borderlands and i will kill you all
+3  im coming on borderlands and i will murder you...  im coming on borderlands and i will murder you...
+4  im getting on borderlands 2 and i will murder ...  im getting on borderlands and i will murder yo...
+
+Stopwords çıkarıldıktan sonra örnek:
+                     cleaned_text
+0  im getting borderlands murder
+1            coming borders kill
+2    im getting borderlands kill
+3   im coming borderlands murder
+4  im getting borderlands murder
+
+Label encoding örneği:
+   sentiment  sentiment_encoded
+0  Positive                  3
+1  Positive                  3
+2  Positive                  3
+3  Positive                  3
+4  Positive                  3
+
+İndekslenmiş veri örneği (ilk 2 tweet):
+ [[2, 3, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [6, 7, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+
+==== RNN Eğitim ====
+RNN - Epoch 1/10, Loss: 1.3708, Accuracy: 0.2943, Time: 4.4s
+RNN - Epoch 2/10, Loss: 1.3914, Accuracy: 0.2862, Time: 3.5s
+RNN - Epoch 3/10, Loss: 1.3953, Accuracy: 0.2734, Time: 3.5s
+RNN - Epoch 4/10, Loss: 1.3769, Accuracy: 0.2863, Time: 3.6s
+RNN - Epoch 5/10, Loss: 1.3782, Accuracy: 0.2885, Time: 3.5s
+RNN - Epoch 6/10, Loss: 1.3730, Accuracy: 0.2937, Time: 3.5s
+RNN - Epoch 7/10, Loss: 1.3756, Accuracy: 0.2954, Time: 3.5s
+RNN - Epoch 8/10, Loss: 1.3838, Accuracy: 0.2908, Time: 3.5s
+RNN - Epoch 9/10, Loss: 1.3868, Accuracy: 0.2875, Time: 3.5s
+RNN - Epoch 10/10, Loss: 1.3869, Accuracy: 0.2835, Time: 3.5s
+RNN Test Accuracy: 0.3028
+C:\Users\w\Desktop\Kodlama\VsCode\HelloWorld\DataKamp\DATA-CAMP\Natural Language Processing\venv\Lib\site-packages\sklearn\metrics\_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels 
+with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+C:\Users\w\Desktop\Kodlama\VsCode\HelloWorld\DataKamp\DATA-CAMP\Natural Language Processing\venv\Lib\site-packages\sklearn\metrics\_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels 
+with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+C:\Users\w\Desktop\Kodlama\VsCode\HelloWorld\DataKamp\DATA-CAMP\Natural Language Processing\venv\Lib\site-packages\sklearn\metrics\_classification.py:1731: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels 
+with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+              precision    recall  f1-score   support
+
+  Irrelevant       0.00      0.00      0.00      4561
+    Negative       0.30      1.00      0.46      7909
+     Neutral       0.00      0.00      0.00      6371
+    Positive       0.00      0.00      0.00      7282
+
+    accuracy                           0.30     26123
+   macro avg       0.08      0.25      0.12     26123
+weighted avg       0.09      0.30      0.14     26123
+
+
+==== LSTM Eğitim ====
+LSTM - Epoch 1/10, Loss: 1.1956, Accuracy: 0.4754, Time: 6.3s
+LSTM - Epoch 2/10, Loss: 1.0125, Accuracy: 0.5842, Time: 6.3s
+LSTM - Epoch 3/10, Loss: 0.8712, Accuracy: 0.6553, Time: 6.3s
+LSTM - Epoch 4/10, Loss: 0.7289, Accuracy: 0.7230, Time: 6.4s
+LSTM - Epoch 5/10, Loss: 0.5998, Accuracy: 0.7768, Time: 6.3s
+LSTM - Epoch 6/10, Loss: 0.4999, Accuracy: 0.8172, Time: 6.5s
+LSTM - Epoch 7/10, Loss: 0.4046, Accuracy: 0.8547, Time: 6.9s
+LSTM - Epoch 8/10, Loss: 0.3430, Accuracy: 0.8755, Time: 7.0s
+LSTM - Epoch 9/10, Loss: 0.2937, Accuracy: 0.8942, Time: 7.0s
+LSTM - Epoch 10/10, Loss: 0.2529, Accuracy: 0.9102, Time: 6.8s
+LSTM Test Accuracy: 0.7472
+              precision    recall  f1-score   support
+
+  Irrelevant       0.76      0.60      0.67      4561
+    Negative       0.77      0.81      0.79      7909
+     Neutral       0.75      0.72      0.73      6371
+    Positive       0.72      0.80      0.76      7282
+
+    accuracy                           0.75     26123
+   macro avg       0.75      0.73      0.74     26123
+weighted avg       0.75      0.75      0.75     26123
+
+Text: I love this product! It's amazing.
+Predicted Sentiment: Positive
+
+Text: Worst experience ever, I hate it.
+Predicted Sentiment: Negative
+
+Text: I don't know what to think about this.
+Predicted Sentiment: Positive
+
+'''
