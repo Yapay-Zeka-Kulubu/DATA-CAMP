@@ -1,1 +1,79 @@
-Harika bir rehber taslağı. İçeriği Markdown formatında, okunabilirliği artıracak hiyerarşik başlıklar, listeler, koyu vurgular ve matematiksel notasyonlarla düzenledim.Aşağıda düzenlenmiş versiyonu bulabilirsin:Sıfırdan LLM (Büyük Dil Modeli) Geliştirme ve Kaynak RehberiBu rehber, Transformer mimarisini anlamak, sıfırdan bir dil modeli eğitmek ve bu sürecin arkasındaki matematiği kavramak isteyenler için hazırlanmıştır. Aşağıdaki bölümlerde, kod implementasyonundan teorik makalelere kadar ilgili konulara nasıl çalışabileceğiniz detaylandırılmıştır.🛠 Temel Araçlar ve Kod DepolarıPratik uygulama ve görselleştirme için ana kaynaklar şunlardır:1. Sıfırdan LLM Eğitimi (Kod)Link: github.com/malibayram/llm-from-scratchAçıklama: Bu depo, teorik bilginin koda dökülmüş halidir. Aşağıdaki teorik başlıkları çalışırken, bu repodaki ilgili kod bloklarını inceleyerek matematiğin Python/PyTorch karşılığını görebilirsiniz.2. 3D LLM GörselleştirmeLink: bbycroft.net/llmAçıklama: Bir LLM'in içindeki ağırlıkların ve veri akışının nasıl göründüğünü anlamak için mükemmel bir araçtır. Özellikle "Matrix Math" ve "Attention" bölümlerini çalışırken bu siteyi açık tutmanız önerilir.📚 Konu Bazlı Kaynak RehberiTransformer mimarisinin her bir parçasını derinlemesine anlamak için aşağıdaki sırayı ve ilgili kaynakları takip edebilirsiniz.1. Giriş ve TarihçeModern yapay zeka devrimi, sıralı işlem yapan RNN ve LSTM gibi modellerin yerini, paralelleştirmeye olanak tanıyan Transformer yapısının almasıyla başlamıştır.Okunacak Makale: "Attention Is All You Need" (Vaswani et al., 2017). Bu makale Transformer'ı tanıtan ve devrimi başlatan orijinal çalışmadır.İncelenecek Kaynak: DataCamp - "How Transformers Work". RNN'lerden Transformer'a geçişin nedenlerini (paralelleştirme ve uzun mesafe bağımlılıkları) açıklar.2. Tokenizasyon (Metni Sayılara Çevirme)Model metni doğrudan anlayamaz, önce onu parçalara (token) ayırıp sayılara dönüştürmemiz gerekir.Yöntemler:BPE (Byte-Pair Encoding): GPT modellerinin kullandığı yöntemdir. Sıklık (frekans) tabanlı bir birleştirme yapar.WordPiece (WPC): BERT modelinin kullandığı yöntemdir. Olasılık (likelihood) tabanlı bir seçim yaparak veriyi en iyi temsil eden parçaları seçer.Kaynak: "BPE Tokenizasyon Algoritması" (Oğuzhan Yenen) - BPE'nin çalışma mantığı ve kod örneği için.Kaynak: "WPC Tokenizasyon Algoritması" (Oğuzhan Yenen) - WordPiece ve BPE farkını anlamak için.3. Embedding (Gömme) ve Uzayda AnlamKelimeler (tokenlar) yüksek boyutlu vektörlere dönüştürülür. Bu uzayda benzer anlama gelen kelimeler matematiksel olarak birbirine yakın durur.Görselleştirme: 3Blue1Brown - "Transformers, the tech behind LLMs". "Kral - Erkek + Kadın = Kraliçe" gibi vektör aritmetiği örneklerini görsel olarak anlatır.Matematik: StatQuest - "The matrix math behind transformer". Kelimelerin matris çarpımıyla nasıl vektöre dönüştüğünü gösterir.4. Positional Encoding (Sıralama Bilgisi)Transformerlar veriyi paralel işlediği için kelimelerin sırasını (cümlenin neresinde olduğunu) bilmezler. Bu bilgi yapay olarak eklenmelidir.Teori: "Attention Is All You Need" makalesi. Sinüs ve Kosinüs fonksiyonlarının frekansları kullanılarak konum bilgisinin nasıl eklendiği anlatılır.Açıklama: StatQuest videosunda bu değerlerin "Word Embedding" vektörlerine toplama işlemiyle nasıl eklendiği gösterilir.5. Attention Mekanizması (Modelin Kalbi)Modelin hangi kelimenin diğer hangi kelimelerle ilişkili olduğunu anladığı kısımdır. Sorgu (Query), Anahtar (Key) ve Değer (Value) matrisleri burada devreye girer.Derinlemesine Anlatım: 3Blue1Brown - "Attention in transformers, step-by-step". Q, K ve V vektörlerinin nasıl oluştuğunu ve "Masking" işleminin (gelecekteki kelimeleri görmeme) mantığını anlatır.Matematiksel İşlem: StatQuest videosu, aşağıdaki formülün adım adım matris çarpımı olarak nasıl yapıldığını gösterir:$$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$Kod Karşılığı: GitHub deposundaki self_attention veya benzeri isimli fonksiyonları bu kaynaklarla eşleştirerek inceleyin.6. Mimariler: Encoder vs. DecoderHer Transformer modeli aynı değildir. Amaca göre farklı yapılar kullanılır.ShutterstockKeşfetEncoder-Only (Örn: BERT): Metni anlamak, sınıflandırmak için kullanılır.Decoder-Only (Örn: GPT): Metin üretmek (bir sonraki kelimeyi tahmin etmek) için kullanılır.Encoder-Decoder (Örn: Çeviri Modelleri): Orijinal "Attention Is All You Need" makalesindeki yapı.Kaynak: Sebastian Raschka - "Understanding Encoder And Decoder LLMs". Hangi modelin hangi görev için uygun olduğunu açıklar.7. Eğitim ve Softmax (Olasılık Dağılımı)Modelin çıktısının nasıl anlamlı bir metne dönüştüğü ve eğitimin nasıl yapıldığı.Softmax ve Sıcaklık (Temperature): 3Blue1Brown videosunda, modelin ürettiği sayıların (logit) nasıl 0 ile 1 arasında olasılıklara dönüştüğü ve "Temperature" parametresinin yaratıcılığı nasıl etkilediği anlatılır.Teacher Forcing: StatQuest videosunda, eğitim sırasında modelin bir önceki kendi tahmini yerine gerçek doğru cevabı (target) girdi olarak alarak nasıl daha hızlı eğitildiği anlatılır.🔗 Hızlı Erişim LinkleriOrijinal Makale (Paper): Attention Is All You Need (Vaswani et al.)Görsel Anlatım (Video): 3Blue1Brown - Neural Networks PlaylistMatematiksel Anlatım (Video): StatQuest with Josh StarmerTürkçe Kaynak (Makale): Oğuzhan Yenen - Medium Yazıları
+# Büyük Dil Modeli Anlama Kaynak Rehberi
+
+Bu rehber, **Transformer** mimarisini anlamak, sıfırdan bir dil modeli eğitmek ve bu sürecin arkasındaki matematiği kavramak isteyenler için hazırlanmıştır. Aşağıdaki bölümlerde, kod implementasyonundan teorik makalelere kadar ilgili konulara nasıl çalışabileceğiniz detaylandırılmıştır.
+
+## 🛠 Temel Araçlar ve Kod Depoları
+
+Pratik uygulama ve görselleştirme için ana kaynaklar şunlardır:
+
+**1. Sıfırdan LLM Eğitimi (Kod)**
+* **Link:** [github.com/malibayram/llm-from-scratch](https://github.com/malibayram/llm-from-scratch)
+* **Açıklama:** Bu depo, teorik bilginin koda dökülmüş halidir. Aşağıdaki teorik başlıkları çalışırken, bu repodaki ilgili kod bloklarını inceleyerek matematiğin **Python/PyTorch** karşılığını görebilirsiniz.
+
+**2. 3D LLM Görselleştirme**
+* **Link:** [bbycroft.net/llm](https://bbycroft.net/llm)
+* **Açıklama:** Bir LLM'in içindeki ağırlıkların ve veri akışının nasıl göründüğünü anlamak için mükemmel bir araçtır. Özellikle *"Matrix Math"* ve *"Attention"* bölümlerini çalışırken bu siteyi açık tutmanız önerilir.
+
+---
+
+## 📚 Konu Bazlı Kaynak Rehberi
+
+Transformer mimarisinin her bir parçasını derinlemesine anlamak için aşağıdaki sırayı ve ilgili kaynakları takip edebilirsiniz.
+
+### 1. Giriş ve Tarihçe
+Modern yapay zeka devrimi, sıralı işlem yapan **RNN** ve **LSTM** gibi modellerin yerini, paralelleştirmeye olanak tanıyan **Transformer** yapısının almasıyla başlamıştır.
+
+* **Okunacak Makale:** *"Attention Is All You Need"* (Vaswani et al., 2017). Bu makale Transformer'ı tanıtan ve devrimi başlatan orijinal çalışmadır.
+* **İncelenecek Kaynak:** DataCamp - *"How Transformers Work"*. RNN'lerden Transformer'a geçişin nedenlerini (paralelleştirme ve uzun mesafe bağımlılıkları) açıklar.
+
+### 2. Tokenizasyon (Metni Sayılara Çevirme)
+Model metni doğrudan anlayamaz, önce onu parçalara (token) ayırıp sayılara dönüştürmemiz gerekir.
+
+* **Yöntemler:**
+    * **BPE (Byte-Pair Encoding):** GPT modellerinin kullandığı yöntemdir. Sıklık (frekans) tabanlı bir birleştirme yapar.
+    * **WordPiece (WPC):** BERT modelinin kullandığı yöntemdir. Olasılık (likelihood) tabanlı bir seçim yaparak veriyi en iyi temsil eden parçaları seçer.
+* **Kaynak:** *"BPE Tokenizasyon Algoritması"* (Oğuzhan Yenen) - BPE'nin çalışma mantığı ve kod örneği için.
+* **Kaynak:** *"WPC Tokenizasyon Algoritması"* (Oğuzhan Yenen) - WordPiece ve BPE farkını anlamak için.
+
+### 3. Embedding (Gömme) ve Uzayda Anlam
+Kelimeler (tokenlar) yüksek boyutlu vektörlere dönüştürülür. Bu uzayda benzer anlama gelen kelimeler matematiksel olarak birbirine yakın durur.
+
+* **Görselleştirme:** 3Blue1Brown - *"Transformers, the tech behind LLMs"*. "Kral - Erkek + Kadın = Kraliçe" gibi vektör aritmetiği örneklerini görsel olarak anlatır.
+* **Matematik:** StatQuest - *"The matrix math behind transformer"*. Kelimelerin matris çarpımıyla nasıl vektöre dönüştüğünü gösterir.
+
+### 4. Positional Encoding (Sıralama Bilgisi)
+Transformerlar veriyi paralel işlediği için kelimelerin sırasını (cümlenin neresinde olduğunu) bilmezler. Bu bilgi yapay olarak eklenmelidir.
+
+* **Teori:** *"Attention Is All You Need"* makalesi. Sinüs ve Kosinüs fonksiyonlarının frekansları kullanılarak konum bilgisinin nasıl eklendiği anlatılır.
+* **Açıklama:** StatQuest videosunda bu değerlerin *"Word Embedding"* vektörlerine toplama işlemiyle nasıl eklendiği gösterilir.
+
+### 5. Attention Mekanizması (Modelin Kalbi)
+Modelin hangi kelimenin diğer hangi kelimelerle ilişkili olduğunu anladığı kısımdır. **Sorgu (Query)**, **Anahtar (Key)** ve **Değer (Value)** matrisleri burada devreye girer.
+
+* **Derinlemesine Anlatım:** 3Blue1Brown - *"Attention in transformers, step-by-step"*. Q, K ve V vektörlerinin nasıl oluştuğunu ve *"Masking"* işleminin (gelecekteki kelimeleri görmeme) mantığını anlatır.
+* **Matematiksel İşlem:** StatQuest videosu, aşağıdaki formülün adım adım matris çarpımı olarak nasıl yapıldığını gösterir:
+  $$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+* **Kod Karşılığı:** GitHub deposundaki `self_attention` veya benzeri isimli fonksiyonları bu kaynaklarla eşleştirerek inceleyin.
+
+### 6. Mimariler: Encoder vs. Decoder
+Her Transformer modeli aynı değildir. Amaca göre farklı yapılar kullanılır.
+
+* **Encoder-Only (Örn: BERT):** Metni anlamak, sınıflandırmak için kullanılır.
+* **Decoder-Only (Örn: GPT):** Metin üretmek (bir sonraki kelimeyi tahmin etmek) için kullanılır.
+* **Encoder-Decoder (Örn: Çeviri Modelleri):** Orijinal *"Attention Is All You Need"* makalesindeki yapı.
+* **Kaynak:** Sebastian Raschka - *"Understanding Encoder And Decoder LLMs"*. Hangi modelin hangi görev için uygun olduğunu açıklar.
+
+### 7. Eğitim ve Softmax (Olasılık Dağılımı)
+Modelin çıktısının nasıl anlamlı bir metne dönüştüğü ve eğitimin nasıl yapıldığı.
+
+* **Softmax ve Sıcaklık (Temperature):** 3Blue1Brown videosunda, modelin ürettiği sayıların (logit) nasıl 0 ile 1 arasında olasılıklara dönüştüğü ve *"Temperature"* parametresinin yaratıcılığı nasıl etkilediği anlatılır.
+* **Teacher Forcing:** StatQuest videosunda, eğitim sırasında modelin bir önceki kendi tahmini yerine gerçek doğru cevabı (target) girdi olarak alarak nasıl daha hızlı eğitildiği anlatılır.
+
+---
+
+## 🔗 Hızlı Erişim Linkleri
+
+* **Orijinal Makale (Paper):** [Attention Is All You Need (Vaswani et al.)](https://arxiv.org/abs/1706.03762)
+* **Görsel Anlatım (Video):** [3Blue1Brown - Neural Networks Playlist](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
+* **Matematiksel Anlatım (Video):** [StatQuest with Josh Starmer](https://www.youtube.com/@statquest)
+* **Türkçe Kaynak (Makale):** [Oğuzhan Yenen - Medium Yazıları](https://medium.com/@oguzhanyenen)
