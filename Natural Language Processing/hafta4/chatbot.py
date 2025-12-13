@@ -23,7 +23,7 @@ class MessageType(Enum):
 #                 GROQ CLIENT CLASS
 # ====================================================
 class GroqClient:
-    def __init__(self, api_key: str = "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", model: str = "meta-llama/llama-4-maverick-17b-128e-instruct"):
+    def __init__(self, api_key: str = "api_key", model: str = "meta-llama/llama-4-maverick-17b-128e-instruct"):
         self.client = Groq(api_key=api_key)
         self.model = model
     
@@ -250,7 +250,7 @@ class StyleManager:
 class MainView:
     @staticmethod
     def render_welcome():
-        logo_path = "/Users/w/Desktop/Kodlama/VsCode/HelloWorld/erciyesyapayzeka/ClubChatBot/frontend/assets/fav1.png"
+        logo_path = "/assets/fav1.png"
         
         col_left, col_center, col_right = st.columns([1, 0.6, 1])
         with col_center:
@@ -305,8 +305,8 @@ def main():
             st.success("Artık bu dosya hakkında soru sorabilirsiniz.")
     
     # --- AYARLAR ---
-    ai_avatar_path = "/Users/w/Desktop/Kodlama/VsCode/HelloWorld/erciyesyapayzeka/ClubChatBot/frontend/assets/fav1.png"
-    sidebar_logo_path = "/Users/w/Desktop/Kodlama/VsCode/HelloWorld/erciyesyapayzeka/ClubChatBot/frontend/assets/logo.png"
+    ai_avatar_path = "/assets/fav1.png"
+    sidebar_logo_path = "/assets/logo.png"
 
     # ================= SIDEBAR =================
     with st.sidebar:
@@ -365,4 +365,5 @@ def main():
         st.rerun()
 
 if __name__ == "__main__":
+
     main()
