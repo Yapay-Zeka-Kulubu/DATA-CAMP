@@ -291,27 +291,11 @@ class BPETokenizer:
 
 ## 🔧 Troubleshooting
 
-### CUDA Hatası
-```bash
-# CUDA versiyonunu kontrol et
-nvidia-smi
-
-# Uygun PyTorch versiyonunu kur
-pip install torch --index-url https://download.pytorch.org/whl/cu124
-```
-
-### Memory Hatası
-```python
-# config.py'de batch_size'ı küçült
-batch_size = 16  # 32 yerine
-```
 
 ## 📝 Referanslar
 
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Original Transformer
 - [Neural Machine Translation of Rare Words with Subword Units](https://arxiv.org/abs/1508.07909) - BPE Paper
-- [Andrej Karpathy - nanoGPT](https://github.com/karpathy/nanoGPT)
-- [noktali-virgul-ai-lectures](https://github.com/Cengineer00/noktali-virgul-ai-lectures)
 
 ## 📄 Lisans
 
