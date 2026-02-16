@@ -1,0 +1,5 @@
+datasets
+nltk
+scikit-learn
+matplotlib
+tensorflow
