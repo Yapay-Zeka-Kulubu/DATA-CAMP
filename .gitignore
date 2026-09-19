@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+
+# Sanal ortamlar
+venv/
+env/
+myenv/
+.venv/
+
+# Ortam değişkenleri / gizli anahtarlar
+.env
+.env.local
+*.key
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model ağırlıkları ve büyük çıktılar
+*.pt
+*.pth
+*.bin
+*.h5
+*.ckpt
+*.onnx
+
+# Veri setleri
+data/raw/
+datasets/raw/
+*.zip
+*.tar.gz
+
+# Editör / IDE
+.vscode/
+.idea/
+*.swp
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+desktop.ini
